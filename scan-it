@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# scan the egvp.de webserver for incidents messages and record them
+# under incidents/ directory
+#
+
+# FIXME: very naive, quick+dirty approach: have to update scan range
+# regularily. or even better: automatically detect vaild messages and
+# prevent accidential overwrite if messages get removed on the egvp.de
+# webserver. (well, still have the git history)
+
+STORAGE=./incidents
+TEMP=./tmp
+
+# oldest message so far, 01.02.2013 14:00
+MIN=331
+MAX=600
+
+mkdir -p $TEMP $STORAGE
+
+# iterate all records
+cnt=$MIN
+while [[ "$cnt" -lt "$MAX" ]]; do
+    url="http://www.egvp.de/meldungen/index.php?id=$cnt"
+    tmpfile="tmp/$cnt.html"
+
+    curl -s "$url" | dos2unix > "$tmpfile"
+
+    if grep "Meldung konnte nicht gefunden werden" < "$tmpfile" >/dev/null; then
+        echo "no message: $cnt: $url"
+    else
+        if [ -s "$tmpfile" ]; then
+            mv "$tmpfile" "./incidents/$cnt.html"
+        else
+            echo "empty reply: $cnt -- $url"
+        fi
+    fi
+
+    cnt=$((cnt+1))
+done

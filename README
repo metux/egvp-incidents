@@ -1,0 +1,41 @@
+
+(german description)
+
+Hilfsprogramme für EGVP-Störungsmeldungen:
+
+http://www.egvp.de/meldungen/index.php
+
+
+Hintergrund: die Betreiber des EGVP-Netzwerks haben weigern sich bisher,
+ein durchsuchbares Archiv zu Störungsmeldungen zur Verfügung zu stellen.
+(das würde ein zu schlechtes Bild abwerfen - sic!).
+
+Damit stehen die Rechtsanwälte vor dem imensen Problem, die (durchaus
+regelmäßigen) Störungen nachzuweisen, zB. in Hinblick auf Wiedereinsetzung
+in den vorigen Stand.
+
+Ergo:
+
+Hier sehe ich mich, als IT-Berater, veranlaßt - im Sinne des Gemein-
+Wohls, der Rechtspflege zu helfen und kleine Tools nebst öffentlichem
+Archiv (außerhalb des Zugriffs der EGVP-Betreiber) zur Verfügung zu stellen.
+
+Hinweis: es handelt sich um ein Freizeit-Projekt. Keine Gewähr/Haftung.
+
+Benötigte Tools:
+* git
+* dos2unix
+* curl
+
+Lesetip: Blog zum Thema Elektronischer Rechtsverkehr / beA und Freie Software
+
+https://foss-erv.blogspot.de/
+
+
+Autor: Enrico Weigelt, metux IT consult <info@metux.net>, +49-151-27565287
+
+
+TODO:
+
+* Meldungen parsen und in Datenbank einspeisen
+* kleine Auswertungs-Tools (zB. nach Datum/Zeitraum filtern)

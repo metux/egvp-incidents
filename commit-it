@@ -1,0 +1,7 @@
+#!/bin/bash
+
+D=`date "+%Y-%m-%d %H:%M:%S"`
+
+git reset && \
+    git add incidents && \
+    git commit -m "scan results: $D"
